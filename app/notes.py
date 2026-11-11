@@ -2,7 +2,7 @@ import html
 import os
 from http.server import BaseHTTPRequestHandler, HTTPServer
 from urllib.parse import parse_qs
-
+import  socket
 import psycopg
 
 
@@ -23,6 +23,7 @@ class Handler(BaseHTTPRequestHandler):
         page = f"""<!doctype html>
 <html><body>
 <h1>Notes</h1>
+<p>Served by {html.escape(socket.gethostname())}</p>
 <form method="post">
 <input name="body" autofocus>
 <button>Save</button>
